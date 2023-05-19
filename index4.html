@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <script>
+    function calcular(operacao) {
+      switch (operacao) {
+        case "adicao":
+          resultado = numero1 + numero2;
+          break;
+        case "subtracao":
+          resultado = numero1 - numero2;
+          break;
+        case "multiplicacao":
+          resultado = numero1 * numero2;
+          break;
+        case "divisao":
+          if (numero2 === 0) {
+            document.getElementById("resultado").innerHTML = "Erro: divisão por zero.";
+            return;
+          }
+          resultado = numero1 / numero2;
+          break;
+        default:
+          document.getElementById("resultado").innerHTML = "Operação inválida.";
+          return;
+      }
+
+      document.getElementById("resultado").innerHTML = "Resultado: " + resultado;
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculadora</h1>
+  <form>
+    <label for="numero1">Número 1:</label>
+    <input type="number" id="numero1" required>
+ 
+    <label for="numero2">Número 2:</label>
+    <input type="number" id="numero2" required>
+
+    <button type="button" onclick="calcular('adicao')">Adição</button>
+    <button type="button" onclick="calcular('subtracao')">Subtração</button>
+    <button type="button" onclick="calcular('multiplicacao')">Multiplicação</button>
+    <button type="button" onclick="calcular('divisao')">Divisão</button>
+  </form>
+  <p id="resultado"></p>
+</body>
+</html>
